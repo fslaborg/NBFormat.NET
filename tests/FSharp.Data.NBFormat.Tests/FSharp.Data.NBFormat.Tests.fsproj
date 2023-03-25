@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="data\polyglot_notebook_simple_fsharp.ipynb" />
+    <EmbeddedResource Include="data\polyglot_notebook_plotly_csharp.ipynb" />
+    <EmbeddedResource Include="data\polyglot_notebook_plotly_fsharp.ipynb" />
+    <Compile Include="TestUtils.fs" />
     <Compile Include="Tests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

@@ -6,9 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="Domain.fs" />
+    <Compile Include="Serialization.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="7.0.2" />
+    <PackageReference Include="FSharp.SystemTextJson" Version="1.1.23" />
   </ItemGroup>
 </Project>
