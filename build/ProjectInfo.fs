@@ -6,7 +6,7 @@ let project = "FSharp.Data.NBFormat"
 
 let testProjects = 
     [
-        "/tests/FSharp.Data.NBFormat.Tests/FSharp.Data.NBFormat.Tests.fsproj"
+        "tests/FSharp.Data.NBFormat.Tests/FSharp.Data.NBFormat.Tests.fsproj"
     ]
 
 let solutionFile  = $"{project}.sln"
