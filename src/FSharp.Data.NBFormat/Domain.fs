@@ -3,7 +3,6 @@
 open System.Text.Json
 open System.Text.Json.Serialization
 open System
-open DynamicObj
 
 module Domain =
     open System.Text.Json.Serialization
