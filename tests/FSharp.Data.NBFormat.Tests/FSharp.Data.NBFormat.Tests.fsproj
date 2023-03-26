@@ -8,11 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="data\polyglot_notebook_simple_fsharp.ipynb" />
-    <EmbeddedResource Include="data\polyglot_notebook_plotly_csharp.ipynb" />
-    <EmbeddedResource Include="data\polyglot_notebook_plotly_fsharp.ipynb" />
+    <EmbeddedResource Include="data\simple\polyglot_notebook_simple.ipynb" />
+    <EmbeddedResource Include="data\simple\polyglot_notebook_simple_csharp.ipynb" />
+    <EmbeddedResource Include="data\simple\polyglot_notebook_simple_fsharp.ipynb" />
     <Compile Include="TestUtils.fs" />
-    <Compile Include="Tests.fs" />
+    <Compile Include="SimpleNotebookTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
@@ -32,5 +32,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\FSharp.Data.NBFormat\FSharp.Data.NBFormat.fsproj" />
   </ItemGroup>
+
+  <ItemGroup />
 
 </Project>

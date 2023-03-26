@@ -1,6 +1,5 @@
 ﻿namespace FSharp.Data.NBFormat
 
-
 module Serialiation =
     open Domain
     open System.IO
@@ -15,8 +14,19 @@ module Serialiation =
                 .WithTypes(JsonFSharpTypes.All)
                 .WithUnionUnwrapFieldlessTags()
                 .ToJsonSerializerOptions()
-
+                
         options.PropertyNameCaseInsensitive <- true
-        options.Converters.Add(JsonFSharpConverter())
 
         JsonSerializer.Deserialize<Notebook>(jsonString, options)
+
+    let serializeNotebook (notebook: Notebook) : string =
+        let options = 
+            JsonFSharpOptions.Default()
+                .WithSkippableOptionFields()
+                .WithTypes(JsonFSharpTypes.All)
+                .WithUnionUnwrapFieldlessTags()
+                .ToJsonSerializerOptions()
+
+        options.PropertyNameCaseInsensitive <- true
+
+        JsonSerializer.Serialize<Notebook>(notebook, options)

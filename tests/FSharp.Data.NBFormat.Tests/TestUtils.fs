@@ -5,6 +5,15 @@ open FSharp.Data.NBFormat.Domain
 open Xunit
 
 open System.Text.Json
+open System.Reflection
+open System.IO
+
+let assembly = Assembly.GetExecutingAssembly()
+
+let getEmbeddedResource file = 
+    use str = assembly.GetManifestResourceStream($"FSharp.Data.NBFormat.Tests.{file}")
+    use r = new StreamReader(str)
+    r.ReadToEnd()
 
 module MimeBundle =
     let hasValue<'T> (key:string) (expected:'T) (bundle:MimeBundle) =
