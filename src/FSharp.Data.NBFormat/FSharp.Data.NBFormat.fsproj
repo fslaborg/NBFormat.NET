@@ -6,10 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="nbformat.v4.5.schema.json" />
     <Compile Include="Domain.fs" />
     <Compile Include="Serialization.fs" />
   </ItemGroup>
+
+  <ItemGroup />
   <ItemGroup>
+    <PackageReference Include="DynamicObj" Version="2.0.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.2" />
     <PackageReference Include="FSharp.SystemTextJson" Version="1.1.23" />
   </ItemGroup>

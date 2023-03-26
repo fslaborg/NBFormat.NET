@@ -12,7 +12,10 @@ module Serialiation =
         let options = 
             JsonFSharpOptions.Default()
                 .WithSkippableOptionFields()
+                .WithTypes(JsonFSharpTypes.All)
+                .WithUnionUnwrapFieldlessTags()
                 .ToJsonSerializerOptions()
+
         options.PropertyNameCaseInsensitive <- true
         options.Converters.Add(JsonFSharpConverter())
 
