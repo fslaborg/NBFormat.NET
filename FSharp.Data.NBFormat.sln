@@ -28,6 +28,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ci", "ci", "{6A918720-2F9B-
 		.github\workflows\build-and-test.yml = .github\workflows\build-and-test.yml
 	EndProjectSection
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Data.NBConvert", "src\FSharp.Data.NBConvert\FSharp.Data.NBConvert.fsproj", "{72CCF95E-1B24-4775-8D42-147B36186896}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.Data.NBConvert.Tool", "src\FSharp.Data.NBConvert.Tool\FSharp.Data.NBConvert.Tool.fsproj", "{FF6F7517-C211-4E5D-A53B-984990EC84BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +50,14 @@ Global
 		{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CCF95E-1B24-4775-8D42-147B36186896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CCF95E-1B24-4775-8D42-147B36186896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CCF95E-1B24-4775-8D42-147B36186896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CCF95E-1B24-4775-8D42-147B36186896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF6F7517-C211-4E5D-A53B-984990EC84BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF6F7517-C211-4E5D-A53B-984990EC84BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF6F7517-C211-4E5D-A53B-984990EC84BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF6F7517-C211-4E5D-A53B-984990EC84BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +66,8 @@ Global
 		{234DEE51-4F42-4524-8FA0-AB6B0788CA33} = {802031E4-754A-46C9-AE31-DCB1D08EB9A4}
 		{6FA3E97A-517C-44DD-BD58-5D6CF6649884} = {44768815-2E7C-4C24-9743-0559F3C0F13B}
 		{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9} = {73C12042-7974-4CED-9443-1852238D4AE5}
+		{72CCF95E-1B24-4775-8D42-147B36186896} = {802031E4-754A-46C9-AE31-DCB1D08EB9A4}
+		{FF6F7517-C211-4E5D-A53B-984990EC84BF} = {802031E4-754A-46C9-AE31-DCB1D08EB9A4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {24E53BF2-6F6D-4AF2-B939-CB92C0ACB9D1}

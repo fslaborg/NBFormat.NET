@@ -15,7 +15,8 @@
     <None Include="playground.fsx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="7.0.2" />
-    <PackageReference Include="FSharp.SystemTextJson" Version="1.1.23" />
+    <PackageReference Include="System.Text.Json" Version="[7.0.0, 8.0.0)" />
+    <PackageReference Include="FSharp.SystemTextJson" Version="[1.1.23]" />
   </ItemGroup>
+
 </Project>

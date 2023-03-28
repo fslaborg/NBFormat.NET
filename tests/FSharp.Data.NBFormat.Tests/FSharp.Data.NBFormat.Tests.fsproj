@@ -33,6 +33,4 @@
     <ProjectReference Include="..\..\src\FSharp.Data.NBFormat\FSharp.Data.NBFormat.fsproj" />
   </ItemGroup>
 
-  <ItemGroup />
-
 </Project>
