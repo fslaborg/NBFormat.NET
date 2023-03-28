@@ -6,9 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Templates\HTMLTemplates.fs" />
-    <Compile Include="HTML.fs" />
-    <Compile Include="Library.fs" />
+    <Compile Include="ConverterTemplates\HTMLConverterTemplates.fs" />
+    <Compile Include="NotebookConverter.fs" />
+    <Compile Include="API.fs" />
   </ItemGroup>
 
   <ItemGroup>
