@@ -6,11 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Templates\HTMLTemplates.fs" />
+    <Compile Include="HTML.fs" />
     <Compile Include="Library.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FSharp.Data.NBFormat\FSharp.Data.NBFormat.fsproj" PackageVersion="[1.0.0, 0.0.0)"/>
+    <PackageReference Include="Giraffe.ViewEngine" Version="[1.4.0]" />
+    <ProjectReference Include="..\FSharp.Data.NBFormat\FSharp.Data.NBFormat.fsproj" PackageVersion="[1.0.0, 0.0.0)" />
   </ItemGroup>
 
   <Target Name="UseExplicitPackageVersions" BeforeTargets="GenerateNuspec">
