@@ -1,4 +1,4 @@
-# FsLab.NBFormat
+# NBFormat.NET
 A pure F# library for parsing the `.ipynb` notebook file format v4.
 
 It uses [System.Text.Json]() in conjunction with the absolutely amazing [FSharp.SystemTextJson](https://github.com/Tarmil/FSharp.SystemTextJson) library.
