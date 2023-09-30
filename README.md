@@ -47,5 +47,5 @@ open System.IO
 
 "your/path/to/a/notebook.ipynb"
 |> File.ReadAllText
-|> Serialiation.deserializeNotebook
+|> Serialization.deserializeNotebook
 ```

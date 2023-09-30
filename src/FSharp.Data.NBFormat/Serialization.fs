@@ -1,6 +1,6 @@
 ﻿namespace FSharp.Data.NBFormat
 
-module Serialiation =
+module Serialization =
     open Domain
     open System.IO
     open System.Text.Json

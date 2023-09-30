@@ -7,7 +7,7 @@ open Xunit
 
 module FSharpNotebook =
     let notebookJson = getEmbeddedResource "data.simple.polyglot_notebook_simple_fsharp.ipynb"
-    let notebook = Serialiation.deserializeNotebook notebookJson
+    let notebook = Serialization.deserializeNotebook notebookJson
 
     module BasicTests = 
         [<Fact>]
@@ -105,7 +105,7 @@ module FSharpNotebook =
 
 module CSharpNotebook =
     let notebookJson = getEmbeddedResource "data.simple.polyglot_notebook_simple_csharp.ipynb"
-    let notebook = Serialiation.deserializeNotebook notebookJson
+    let notebook = Serialization.deserializeNotebook notebookJson
 
     module BasicTests = 
         [<Fact>]
@@ -203,7 +203,7 @@ module CSharpNotebook =
 
 module PolyglotNotebook =
     let notebookJson = getEmbeddedResource "data.simple.polyglot_notebook_simple.ipynb"
-    let notebook = Serialiation.deserializeNotebook notebookJson
+    let notebook = Serialization.deserializeNotebook notebookJson
 
     module BasicTests = 
         [<Fact>]
