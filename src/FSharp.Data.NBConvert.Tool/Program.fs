@@ -26,7 +26,7 @@ let main args =
     let parsedNotebook =
         notebookPath
         |> File.ReadAllText 
-        |> Serialiation.deserializeNotebook
+        |> Serialization.deserializeNotebook
 
     match toFormat with
     | OutputFormat.HTML ->
