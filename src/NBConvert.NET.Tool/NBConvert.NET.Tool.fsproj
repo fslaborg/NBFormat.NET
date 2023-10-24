@@ -1,19 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackAsTool>string</PackAsTool>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ConverterTemplates\HTMLConverterTemplates.fs" />
-    <Compile Include="NotebookConverter.fs" />
-    <Compile Include="API.fs" />
+    <Compile Include="CLIArgs.fs" />
+    <Compile Include="Program.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Giraffe.ViewEngine" Version="[1.4.0]" />
-    <ProjectReference Include="..\FSharp.Data.NBFormat\FSharp.Data.NBFormat.fsproj" PackageVersion="[1.0.0, 0.0.0)" />
+    <ProjectReference Include="..\NBFormat.NET\NBFormat.NET.fsproj" PackageVersion="[0.0.0, 1.0.0)" />
+    <ProjectReference Include="..\NBConvert.NET\NBConvert.NET.fsproj" PackageVersion="[0.0.0, 1.0.0)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Argu" Version="6.1.1" />
   </ItemGroup>
 
   <Target Name="UseExplicitPackageVersions" BeforeTargets="GenerateNuspec">
@@ -30,5 +34,4 @@
       <_ProjectReferencesWithVersions Include="@(_ProjectReferenceWithReassignedVersion)" />
     </ItemGroup>
   </Target>
-
 </Project>

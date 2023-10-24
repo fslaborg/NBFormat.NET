@@ -5,9 +5,9 @@
 #load "Serialization.fs"
 
 open System.IO
-open FSharp.Data.NBFormat
+open NBFormat.NET
 
-File.ReadAllText @"C:\Users\schne\Source\repos\kMutagene\FSharp.Data.NBFormat\tests\FSharp.Data.NBFormat.Tests\data\polyglot_notebook_plotly_fsharp.ipynb"
+File.ReadAllText @"C:\Users\schne\Source\repos\kMutagene\NBFormat.NET\tests\NBFormat.NET.Tests\data\polyglot_notebook_plotly_fsharp.ipynb"
 |> Serialiation.deserializeNotebook
 |> Serialiation.serializeNotebook
 |> Serialiation.deserializeNotebook

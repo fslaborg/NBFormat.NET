@@ -14,7 +14,7 @@ This library aims to close that gap by
 
 ### build
 
-Check the [build project](https://github.com/kMutagene/FSharp.Data.NBFormat/blob/main/build) to take a look at the  build targets. Here are some examples:
+Check the [build project](https://github.com/kMutagene/NBFormat.NET/blob/main/build) to take a look at the  build targets. Here are some examples:
 
 ```shell
 # Windows
@@ -42,7 +42,7 @@ The library is not on nuget currently, so you currently have to clone the repo a
 Then you can use it to deserialize a notebook file like this:
 
 ```fsharp
-open FSharp.Data.NBFormat
+open NBFormat.NET
 open System.IO
 
 "your/path/to/a/notebook.ipynb"

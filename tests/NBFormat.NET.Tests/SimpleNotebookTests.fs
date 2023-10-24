@@ -1,8 +1,8 @@
-﻿namespace FSharp.Data.NBFormat.Tests.notebooks
+﻿namespace NBFormat.NET.Tests.notebooks
 
 open TestUtils
 open System.Text.Json
-open FSharp.Data.NBFormat
+open NBFormat.NET
 open Xunit
 
 module FSharpNotebook =

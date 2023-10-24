@@ -1,4 +1,4 @@
-﻿namespace FSharp.Data.NBFormat
+﻿namespace NBFormat.NET
 
 open System.Text.Json
 open System.Text.Json.Serialization

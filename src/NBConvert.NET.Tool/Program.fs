@@ -2,9 +2,9 @@
 open System
 open System.IO
 open FSharp.Data
-open FSharp.Data.NBConvert
-open FSharp.Data.NBFormat
-open FSharp.Data.NBFormat.Domain
+open NBConvert.NET
+open NBFormat.NET
+open NBFormat.NET.Domain
 
 [<EntryPoint>]
 let main args =
@@ -31,7 +31,7 @@ let main args =
     match toFormat with
     | OutputFormat.HTML ->
         let outputPath = Path.Combine(outputDir, Path.GetFileNameWithoutExtension(notebookPath) + ".html")
-        let convertedNotebook = NBConvert.API.convert(parsedNotebook, (HTMLConverter HTMLConverterTemplates.Default))
+        let convertedNotebook = NBConvert.NET.API.convert(parsedNotebook, (HTMLConverter HTMLConverterTemplates.Default))
         File.WriteAllText(outputPath, convertedNotebook)
     | _ -> failwith "Invalid output format"
     0

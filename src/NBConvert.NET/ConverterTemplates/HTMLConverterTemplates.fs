@@ -1,8 +1,8 @@
-﻿namespace FSharp.Data.NBConvert
+﻿namespace NBConvert.NET
 
 open Giraffe.ViewEngine
-open FSharp.Data.NBFormat
-open FSharp.Data.NBFormat.Domain
+open NBFormat.NET
+open NBFormat.NET.Domain
 open System.Text
 open System.Text.Json
 open System.Text.RegularExpressions

@@ -1,7 +1,7 @@
 ﻿module TestUtils
 
-open FSharp.Data.NBFormat
-open FSharp.Data.NBFormat.Domain
+open NBFormat.NET
+open NBFormat.NET.Domain
 open Xunit
 
 open System.Text.Json
@@ -11,7 +11,7 @@ open System.IO
 let assembly = Assembly.GetExecutingAssembly()
 
 let getEmbeddedResource file = 
-    use str = assembly.GetManifestResourceStream($"FSharp.Data.NBFormat.Tests.{file}")
+    use str = assembly.GetManifestResourceStream($"NBFormat.NET.Tests.{file}")
     use r = new StreamReader(str)
     r.ReadToEnd()
 

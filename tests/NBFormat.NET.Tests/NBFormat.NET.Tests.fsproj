@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FSharp.Data.NBFormat\FSharp.Data.NBFormat.fsproj" />
+    <ProjectReference Include="..\..\src\NBFormat.NET\NBFormat.NET.fsproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{802031E4-754A-46C9-AE31-DCB1D08EB9A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{44768815-2E7C-4C24-9743-0559F3C0F13B}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "build", "build\build.fsproj", "{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{73C12042-7974-4CED-9443-1852238D4AE5}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".ci", ".ci", "{6A918720-2F9B-4449-9D4A-B8620E49A4E2}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-and-test.yml = .github\workflows\build-and-test.yml
+	EndProjectSection
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NBFormat.NET", "src\NBFormat.NET\NBFormat.NET.fsproj", "{7C5A9AE8-302D-44AC-90E1-4F28F3396E2F}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NBConvert.NET", "src\NBConvert.NET\NBConvert.NET.fsproj", "{E25DCC4B-C798-42EC-B4E3-3CD646DE8BAA}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NBConvert.NET.Tool", "src\NBConvert.NET.Tool\NBConvert.NET.Tool.fsproj", "{AED1C704-1C13-49F1-A2E9-AA3A2695456A}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "NBFormat.NET.Tests", "tests\NBFormat.NET.Tests\NBFormat.NET.Tests.fsproj", "{9EB78D66-E4CF-4E22-88E6-B71D2C79F197}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{4EA12D61-5D78-474A-A7E9-58B24870B8E1}"
+	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
+		build.sh = build.sh
+		global.json = global.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C5A9AE8-302D-44AC-90E1-4F28F3396E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C5A9AE8-302D-44AC-90E1-4F28F3396E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C5A9AE8-302D-44AC-90E1-4F28F3396E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C5A9AE8-302D-44AC-90E1-4F28F3396E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25DCC4B-C798-42EC-B4E3-3CD646DE8BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25DCC4B-C798-42EC-B4E3-3CD646DE8BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25DCC4B-C798-42EC-B4E3-3CD646DE8BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25DCC4B-C798-42EC-B4E3-3CD646DE8BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED1C704-1C13-49F1-A2E9-AA3A2695456A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED1C704-1C13-49F1-A2E9-AA3A2695456A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED1C704-1C13-49F1-A2E9-AA3A2695456A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED1C704-1C13-49F1-A2E9-AA3A2695456A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EB78D66-E4CF-4E22-88E6-B71D2C79F197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EB78D66-E4CF-4E22-88E6-B71D2C79F197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EB78D66-E4CF-4E22-88E6-B71D2C79F197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EB78D66-E4CF-4E22-88E6-B71D2C79F197}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E910F030-7CF8-41E1-BA4B-E6DD043FEDE9} = {4EA12D61-5D78-474A-A7E9-58B24870B8E1}
+		{7C5A9AE8-302D-44AC-90E1-4F28F3396E2F} = {802031E4-754A-46C9-AE31-DCB1D08EB9A4}
+		{E25DCC4B-C798-42EC-B4E3-3CD646DE8BAA} = {802031E4-754A-46C9-AE31-DCB1D08EB9A4}
+		{AED1C704-1C13-49F1-A2E9-AA3A2695456A} = {802031E4-754A-46C9-AE31-DCB1D08EB9A4}
+		{9EB78D66-E4CF-4E22-88E6-B71D2C79F197} = {44768815-2E7C-4C24-9743-0559F3C0F13B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {24E53BF2-6F6D-4AF2-B939-CB92C0ACB9D1}
+	EndGlobalSection
+EndGlobal

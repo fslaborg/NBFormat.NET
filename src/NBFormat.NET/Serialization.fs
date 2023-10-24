@@ -1,4 +1,4 @@
-﻿namespace FSharp.Data.NBFormat
+﻿namespace NBFormat.NET
 
 module Serialization =
     open Domain

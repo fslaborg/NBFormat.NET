@@ -2,11 +2,11 @@
 
 open Fake.Core
 
-let project = "FSharp.Data.NBFormat"
+let project = "NBFormat.NET"
 
 let testProjects = 
     [
-        "tests/FSharp.Data.NBFormat.Tests/FSharp.Data.NBFormat.Tests.fsproj"
+        "tests/NBFormat.NET.Tests/NBFormat.NET.Tests.fsproj"
     ]
 
 let solutionFile  = $"{project}.sln"

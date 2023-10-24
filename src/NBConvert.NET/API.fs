@@ -1,8 +1,8 @@
-﻿namespace FSharp.Data.NBConvert
+﻿namespace NBConvert.NET
 
-open FSharp.Data.NBFormat
-open FSharp.Data.NBFormat.Domain
-open FSharp.Data.NBConvert
+open NBFormat.NET
+open NBFormat.NET.Domain
+open NBConvert.NET
 
 open Giraffe.ViewEngine
 
