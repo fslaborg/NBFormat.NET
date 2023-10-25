@@ -9,10 +9,10 @@ open Giraffe.ViewEngine
 type API() =
 
     static member convert (
-        notebook: Notebook,
         converter: NotebookConverter
     ) =
-        match converter with
-        | HTMLConverter converter ->
-            converter.ConvertNotebook notebook
-            |> RenderView.AsString.htmlDocument
+        fun (notebook: Notebook) ->
+            match converter with
+            | HTMLConverter converter ->
+                converter.ConvertNotebook notebook
+                |> RenderView.AsString.htmlDocument

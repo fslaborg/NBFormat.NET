@@ -6,13 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="InternalUtils.fs" />
     <Compile Include="ConverterTemplates\HTMLConverterTemplates.fs" />
     <Compile Include="NotebookConverter.fs" />
     <Compile Include="API.fs" />
+    <None Include="playground.fsx" />
   </ItemGroup>
+
+  <ItemGroup />
 
   <ItemGroup>
     <PackageReference Include="Giraffe.ViewEngine" Version="[1.4.0]" />
+    <PackageReference Include="Feliz.ViewEngine" Version="[0.24.0]" />
     <ProjectReference Include="..\NBFormat.NET\NBFormat.NET.fsproj" PackageVersion="[1.0.0, 0.0.0)" />
   </ItemGroup>
 

@@ -26,15 +26,15 @@ type DocumentTemplate(
         ]
 
 type CellConverter(
-    SourceConverter: string list -> XmlNode,
+    SourceConverter: CellType -> string list -> XmlNode,
     OutputConverter: Output -> XmlNode
 ) =
 
-    member _.ConvertSource(source: string list) = SourceConverter source
+    member _.ConvertSource(source: string list, cellType: CellType) = SourceConverter cellType source
     member _.ConvertOutput(output: Output) = OutputConverter output
 
     member this.ConvertCell(cell: Cell) =
-        let source = this.ConvertSource cell.Source
+        let source = this.ConvertSource(cell.Source, cell.CellType)
         let outputs = 
             cell.Outputs 
             |> Option.map (fun outputs -> outputs |> List.map this.ConvertOutput)
@@ -65,29 +65,42 @@ module HTMLConverterTemplates =
                 HeadTags = []
             ),
             CellConverter = CellConverter(
-                (fun (source) -> 
-                    code [] [yield! source |> List.map (fun line -> str (Regex.Unescape(line)))]
-                ),
-                (fun (output) -> 
-                    match output.OutputType with
-                    | OutputType.DisplayData -> 
-                        div [] [
-                            yield! 
-                                output.Data
-                                |> Option.map(fun bundle -> 
-                                    bundle 
-                                    |> Map.toList
-                                    |> List.map(fun (key, value) -> 
-                                        div [] [
-                                            str key
-                                            str (value.ToString())
-                                        ]
-                                    )
+                SourceConverter = 
+                    (fun cellType source -> 
+                        match cellType with
+                        | CellType.Markdown -> 
+                            div [] [yield! source |> List.map str]
+                        | CellType.Code ->
+                            code [] [yield! source |> List.map str]
+                        | CellType.Raw -> 
+                            div [] [yield! source |> List.map str]
+                    ),
+                OutputConverter = 
+                    (fun (output) -> 
+                        match output.OutputType with
+                        | OutputType.DisplayData -> 
+                            div [] [
+                                yield! 
+                                    output.Data
+                                    |> Option.map(fun bundle -> 
+                                        bundle 
+                                        |> Map.toList
+                                        |> List.map(fun (key, value) -> 
+                                            div [] [
+                                                rawText (
+                                                    value
+                                                        .EnumerateArray()
+                                                        |> Seq.cast<System.Text.Json.JsonElement>
+                                                        |> Seq.map (fun j -> j.GetString())
+                                                    |> String.concat "\r\n"
+                                                )
+                                            ]
+                                        )
 
-                                )
-                                |> Option.defaultValue []
-                        ]
-                    | _ -> div [] [str "other output type than DisplayData xd"]
-                )
+                                    )
+                                    |> Option.defaultValue []
+                            ]
+                        | _ -> div [] [str "other output type than DisplayData xd"]
+                    )
             )
         )

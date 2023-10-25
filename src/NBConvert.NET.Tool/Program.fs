@@ -31,7 +31,11 @@ let main args =
     match toFormat with
     | OutputFormat.HTML ->
         let outputPath = Path.Combine(outputDir, Path.GetFileNameWithoutExtension(notebookPath) + ".html")
-        let convertedNotebook = NBConvert.NET.API.convert(parsedNotebook, (HTMLConverter HTMLConverterTemplates.Default))
+
+        let convertedNotebook = 
+            parsedNotebook
+            |> NBConvert.NET.API.convert(HTMLConverter HTMLConverterTemplates.Default)
+
         File.WriteAllText(outputPath, convertedNotebook)
     | _ -> failwith "Invalid output format"
     0

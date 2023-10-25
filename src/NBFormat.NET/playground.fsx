@@ -8,6 +8,6 @@ open System.IO
 open NBFormat.NET
 
 File.ReadAllText @"C:\Users\schne\Source\repos\kMutagene\NBFormat.NET\tests\NBFormat.NET.Tests\data\polyglot_notebook_plotly_fsharp.ipynb"
-|> Serialiation.deserializeNotebook
-|> Serialiation.serializeNotebook
-|> Serialiation.deserializeNotebook
+|> Serialization.deserializeNotebook
+|> Serialization.serializeNotebook
+|> Serialization.deserializeNotebook
