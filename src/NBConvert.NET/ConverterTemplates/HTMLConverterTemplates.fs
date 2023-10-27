@@ -1,6 +1,7 @@
 ﻿namespace NBConvert.NET
 
-open Giraffe.ViewEngine
+open Feliz.ViewEngine
+open Feliz.Bulma.ViewEngine
 open NBFormat.NET
 open NBFormat.NET.Domain
 open System.Text
@@ -8,26 +9,26 @@ open System.Text.Json
 open System.Text.RegularExpressions
 
 type DocumentTemplate(
-    HeadTags: XmlNode list,
-    ?FooterTags: XmlNode list
+    HeadTags: ReactElement list,
+    ?FooterTags: ReactElement list
 ) =
 
     member val HeadTags = HeadTags with get,set
     member val FooterTags = defaultArg FooterTags [] with get,set
 
     member this.asHtmlNode(
-        bodyNodes: XmlNode list
+        bodyNodes: ReactElement list
     ) = 
-        html [] [
-            head [] this.HeadTags
-            body [] bodyNodes
+        Html.html [
+            Html.head this.HeadTags
+            Html.body bodyNodes
             if this.FooterTags <> [] then
-                footer [] this.FooterTags
+                Html.footer this.FooterTags
         ]
 
 type CellConverter(
-    SourceConverter: CellType -> string list -> XmlNode,
-    OutputConverter: Output -> XmlNode
+    SourceConverter: CellType -> string list -> ReactElement,
+    OutputConverter: Output -> ReactElement
 ) =
 
     member _.ConvertSource(source: string list, cellType: CellType) = SourceConverter cellType source
@@ -59,35 +60,49 @@ type HTMLConverterTemplate(
 
 module HTMLConverterTemplates =
     
+    open type System.Environment
+
     let Default =
         HTMLConverterTemplate(
             DocumentTemplate = DocumentTemplate(
-                HeadTags = []
+                HeadTags = [
+                    Html.link [
+                        prop.rel "stylesheet"
+                        prop.href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+                    ]
+                ]
             ),
             CellConverter = CellConverter(
                 SourceConverter = 
                     (fun cellType source -> 
                         match cellType with
                         | CellType.Markdown -> 
-                            div [] [yield! source |> List.map str]
+                            Bulma.container [yield! source |> List.map prop.text]
                         | CellType.Code ->
-                            code [] [yield! source |> List.map str]
+                            Bulma.container [
+                                prop.children [
+                                    Html.pre (
+                                        source 
+                                        |> List.map Bulma.text.p
+                                    )
+                                ]
+                            ]
                         | CellType.Raw -> 
-                            div [] [yield! source |> List.map str]
+                             Bulma.container [yield! source |> List.map prop.text]
                     ),
                 OutputConverter = 
                     (fun (output) -> 
                         match output.OutputType with
                         | OutputType.DisplayData -> 
-                            div [] [
+                            Bulma.container [
                                 yield! 
                                     output.Data
                                     |> Option.map(fun bundle -> 
                                         bundle 
                                         |> Map.toList
                                         |> List.map(fun (key, value) -> 
-                                            div [] [
-                                                rawText (
+                                            Bulma.container [
+                                                prop.dangerouslySetInnerHTML (
                                                     value
                                                         .EnumerateArray()
                                                         |> Seq.cast<System.Text.Json.JsonElement>
@@ -100,7 +115,7 @@ module HTMLConverterTemplates =
                                     )
                                     |> Option.defaultValue []
                             ]
-                        | _ -> div [] [str "other output type than DisplayData xd"]
+                        | _ -> Bulma.container [prop.text "other output type than DisplayData xd"]
                     )
             )
         )

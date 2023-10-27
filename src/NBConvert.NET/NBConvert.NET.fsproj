@@ -13,11 +13,9 @@
     <None Include="playground.fsx" />
   </ItemGroup>
 
-  <ItemGroup />
-
   <ItemGroup>
-    <PackageReference Include="Giraffe.ViewEngine" Version="[1.4.0]" />
     <PackageReference Include="Feliz.ViewEngine" Version="[0.24.0]" />
+    <PackageReference Include="Feliz.Bulma.ViewEngine" Version="[0.25.0]" />
     <ProjectReference Include="..\NBFormat.NET\NBFormat.NET.fsproj" PackageVersion="[1.0.0, 0.0.0)" />
   </ItemGroup>
 

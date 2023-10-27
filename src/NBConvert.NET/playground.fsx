@@ -2,6 +2,7 @@
 #r "nuget: FSharp.SystemTextJson, 1.1.23"
 #r "nuget: Giraffe.ViewEngine, 1.4.0"
 #r "nuget: Feliz.ViewEngine, 0.24.0"
+#r "nuget: Feliz.Bulma.ViewEngine, 0.25.0"
 
 #load "../NBFormat.NET/Domain.fs"
 #load "../NBFormat.NET/Serialization.fs"

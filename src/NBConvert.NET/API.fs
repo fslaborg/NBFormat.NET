@@ -4,7 +4,7 @@ open NBFormat.NET
 open NBFormat.NET.Domain
 open NBConvert.NET
 
-open Giraffe.ViewEngine
+open Feliz.ViewEngine
 
 type API() =
 
@@ -15,4 +15,4 @@ type API() =
             match converter with
             | HTMLConverter converter ->
                 converter.ConvertNotebook notebook
-                |> RenderView.AsString.htmlDocument
+                |> Render.htmlDocument
