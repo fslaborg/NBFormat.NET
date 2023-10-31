@@ -3,6 +3,8 @@
 #r "nuget: Giraffe.ViewEngine, 1.4.0"
 #r "nuget: Feliz.ViewEngine, 0.24.0"
 #r "nuget: Feliz.Bulma.ViewEngine, 0.25.0"
+#r "nuget: Markdig, 0.33.0"
+#r "nuget: WebStoating.Markdig.Prism, 1.0.0"
 
 #load "../NBFormat.NET/Domain.fs"
 #load "../NBFormat.NET/Serialization.fs"

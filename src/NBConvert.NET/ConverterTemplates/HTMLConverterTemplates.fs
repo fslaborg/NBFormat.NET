@@ -7,6 +7,8 @@ open NBFormat.NET.Domain
 open System.Text
 open System.Text.Json
 open System.Text.RegularExpressions
+open Markdig
+open Markdig.Prism
 
 type DocumentTemplate(
     HeadTags: ReactElement list,
@@ -62,6 +64,13 @@ module HTMLConverterTemplates =
     
     open type System.Environment
 
+    let pipeline =
+        Markdig
+            .MarkdownPipelineBuilder()
+            .UseAdvancedExtensions()
+            .UsePrism()
+            .Build()
+
     let Default =
         HTMLConverterTemplate(
             DocumentTemplate = DocumentTemplate(
@@ -70,6 +79,18 @@ module HTMLConverterTemplates =
                         prop.rel "stylesheet"
                         prop.href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
                     ]
+                    Html.link [
+                        prop.rel "stylesheet"
+                        prop.href "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+                    ]
+                ],
+                FooterTags = [
+                    Html.script [
+                        prop.src "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"
+                    ]
+                    Html.script [
+                        prop.src "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"
+                    ]
                 ]
             ),
             CellConverter = CellConverter(
@@ -77,14 +98,23 @@ module HTMLConverterTemplates =
                     (fun cellType source -> 
                         match cellType with
                         | CellType.Markdown -> 
-                            Bulma.container [yield! source |> List.map prop.text]
+                            Bulma.container [
+                                source
+                                |> String.concat ""
+                                |> fun s -> Markdown.ToHtml(s, pipeline)
+                                |> prop.dangerouslySetInnerHTML
+                            ]
                         | CellType.Code ->
                             Bulma.container [
-                                prop.children [
-                                    Html.pre (
-                                        source 
-                                        |> List.map Bulma.text.p
-                                    )
+                                Html.pre [
+                                    Html.code [
+                                        prop.text (
+                                            source 
+                                            |> String.concat ""
+                                        )
+                                        prop.className "language-js"
+                                    ]
+                                            
                                 ]
                             ]
                         | CellType.Raw -> 
